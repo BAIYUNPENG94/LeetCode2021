@@ -122,4 +122,15 @@ class Solutions {
 		}
 	}
 
+	void moveZeroes(vector<int>& nums) {
+		int length = nums.size(), left = 0, right = 0;
+		while(right < length) {
+			if (nums[right]) {
+				swap(nums[right], nums[left]);
+				left++;
+			}
+			right++;
+		}
+	}
+
 }; //Solution
