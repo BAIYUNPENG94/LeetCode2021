@@ -133,4 +133,24 @@ class Solutions {
 		}
 	}
 
+	bool isValid(string s) {
+		int n = s.size();
+		if (n % 2 == 1) return false;
+		unordered_map<char, char> dic = {
+			{')', '('},
+			{']', '['},
+			{'}', '{'}
+		};
+		stack<char> validator;
+		for (char x: s) {
+			if (dic.count(x)) {
+				if (validator.empty() || validator.top() != dic[x]) return false;
+				validator.pop();
+			} else {
+				validator.push(x);
+			}
+		}
+		return validator.empty();
+	}
+
 }; //Solution
