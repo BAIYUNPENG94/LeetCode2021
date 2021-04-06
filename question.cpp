@@ -21,6 +21,11 @@ struct TreeNode {
 	TreeNode(int val, TreeNode * left, TreeNode * right) : val(val), left(left), right(right) {}
 };
 
+class Node {
+	public int val;
+	public List<Node> neighbors;
+}
+
 class Solutions {
 	int matrixScore(std::vector<std::vector<int>>& A){
 		int rows = A.size();
