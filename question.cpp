@@ -153,4 +153,21 @@ class Solutions {
 		return validator.empty();
 	}
 
+	ListNode * mergeTwoLists(ListNode * l1, ListNode * l2) {
+		ListNode * preHead = new ListNode(-1);
+		ListNode * anchor = preHead;
+		while (l1 != nullptr && l2 != nullptr) {
+			if (l1->val >= l2->val) {
+				anchor->next = l2;
+				l2 = l2->next;
+			} else {
+				anchor->next = l1;
+				l1 = l1->next;
+			}
+			anchor = anchor->next;
+		}	
+		anchor->next = (l1 == nullptr) ? l2 : l1;
+		return preHead->next;
+	}
+
 }; //Solution
